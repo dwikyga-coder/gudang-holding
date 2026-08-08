@@ -90,7 +90,6 @@
     }
     .action-icon { width: 42px; height: 42px; }
     .action-input .action-icon { background: var(--teal-soft); color: #fff; }
-    .action-stock .action-icon { background: var(--green-soft); color: #fff; }
     .action-copy { min-width: 0; }
     .action-title { margin-bottom: 2px; font-size: 14px; font-weight: 600; }
     .action-desc { color: var(--muted); font-size: 12px; }
@@ -115,7 +114,6 @@
       background: var(--surface);
       box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
     }
-    .stock-card.wide { grid-column: 1 / -1; min-height: 128px; }
     .card-top { display: flex; align-items: center; gap: 9px; }
     .category-icon {
       position: relative;
@@ -147,6 +145,8 @@
     .nakes .category-icon { background-color: var(--red-soft); background-position: 100% 100%; }
     .inventaris .category-icon { background-image: none; background-color: var(--green-soft); color: #fff; font-size: 17px; }
     .inventaris .category-icon::before { display: none; }
+    .souvenir .category-icon { background-image: none; background-color: var(--red-soft); color: #fff; font-size: 17px; }
+    .souvenir .category-icon::before { display: none; }
     .category-name { font-size: 13px; font-weight: 600; }
     .stock-value { margin: .8rem 0 .08rem; font-size: 24px; font-weight: 700; letter-spacing: -.5px; }
     .stock-unit { color: var(--muted); font-size: 11px; }
@@ -168,24 +168,6 @@
       text-decoration: none;
     }
     .card-link:hover { text-decoration: underline; }
-    .card-note { margin: .75rem 0 0; color: var(--muted); font-size: 11px; }
-
-    .detail-wrap { margin-top: 1.55rem; }
-    .detail-list { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .detail-item {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: .78rem .9rem;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      font-size: 13px;
-    }
-    .detail-item:last-child { border-bottom: 0; }
-    .detail-icon { width: 24px; text-align: center; color: #fff; font-size: 17px; }
-    .detail-name { min-width: 0; }
-    .detail-meta { margin-left: auto; color: var(--muted); font-size: 11px; white-space: nowrap; }
-    .detail-chevron { color: #a0aaa3; font-size: 18px; line-height: 1; }
     .footer { margin-top: 1.45rem; color: var(--muted); font-size: 11px; line-height: 1.6; text-align: center; }
     .footer-credit { display: block; color: #d2d2d2; }
 
@@ -209,14 +191,6 @@
         <span class="action-copy">
           <span class="action-title">Input / Lapor</span>
           <span class="action-desc">Catat barang masuk, keluar, atau peminjaman</span>
-        </span>
-        <span class="chevron" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="action action-stock" href="#preview-stok">
-        <span class="action-icon" aria-hidden="true">&#9635;</span>
-        <span class="action-copy">
-          <span class="action-title">Lihat Stok</span>
-          <span class="action-desc">Preview ATK, Operasional, Seragam, dan Nakes</span>
         </span>
         <span class="chevron" aria-hidden="true">&#8250;</span>
       </a>
@@ -253,25 +227,19 @@
           <a class="card-link" href="https://docs.google.com/spreadsheets/d/11HVfU0eWEtazMJWfAHnPnLMTNhiRn004K6lI0bY8jkw/preview" target="_blank" rel="noopener">Buka Sheet (lihat) <span aria-hidden="true">&#8599;</span></a>
         </article>
 
-        <article class="stock-card wide inventaris">
+        <article class="stock-card inventaris">
           <div class="card-top"><span class="category-icon" aria-hidden="true">&#9635;</span><span class="category-name">Inventaris Gudang</span></div>
-          <div class="stock-value">Daftar aset</div>
-          <div class="stock-unit">peralatan dan barang tersimpan</div>
-          <a class="card-link" href="https://docs.google.com/spreadsheets/d/1AEsLXlebdjYaBMtk6fsI1PHDE3Kj8v5Av_mcoUtJzPM/preview" target="_blank" rel="noopener">Buka Sheet Inventaris (lihat) <span aria-hidden="true">&#8599;</span></a>
+          <div class="stock-value">Buka Sheet</div>
+          <div class="stock-unit">Lihat daftar terbaru di Sheet Inventaris</div>
+          <a class="card-link" href="https://docs.google.com/spreadsheets/d/1AEsLXlebdjYaBMtk6fsI1PHDE3Kj8v5Av_mcoUtJzPM/preview" target="_blank" rel="noopener">Buka Sheet (lihat) <span aria-hidden="true">&#8599;</span></a>
         </article>
-      </div>
-      <p class="card-note">Jumlah stok tidak ditampilkan di hub agar selalu akurat. Buka Sheet masing-masing untuk melihat data terbaru.</p>
-    </section>
 
-    <section class="detail-wrap" aria-labelledby="detail-title">
-      <h2 id="detail-title" class="section-label">Lihat Detail</h2>
-      <div class="detail-list">
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/1m6K66OODTM8dQkbGsFBkhg1QE7O07TdkntboO6XS41w/preview" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#9633;</span><span class="detail-name">Stok ATK</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/1zXa3KY9riNBKkRWzqsDHEFApY2bnpcJOGibG9ZrbfeA/preview" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#9881;</span><span class="detail-name">Operasional Harian</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/1IWS2_ml_qsgAkEUjjE3cDAyWj4QAUt-4_LP7FHywjEk/edit?usp=sharing" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#9827;</span><span class="detail-name">Stok Seragam</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/11HVfU0eWEtazMJWfAHnPnLMTNhiRn004K6lI0bY8jkw/preview" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#10010;</span><span class="detail-name">Barang Nakes</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/1AEsLXlebdjYaBMtk6fsI1PHDE3Kj8v5Av_mcoUtJzPM/preview" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#9635;</span><span class="detail-name">Inventaris Gudang</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
-        <a class="detail-item" href="https://docs.google.com/spreadsheets/d/1h361RtTBqTxdnGwIVS6KfAxfb2JLxheZQW39TA27Rq4/preview" target="_blank" rel="noopener"><span class="detail-icon" aria-hidden="true">&#127873;</span><span class="detail-name">Souvenir</span><span class="detail-meta">Lihat saja</span><span class="detail-chevron" aria-hidden="true">&#8250;</span></a>
+        <article class="stock-card souvenir">
+          <div class="card-top"><span class="category-icon" aria-hidden="true">&#127873;</span><span class="category-name">Souvenir</span></div>
+          <div class="stock-value">Buka Sheet</div>
+          <div class="stock-unit">Lihat jumlah terbaru di Sheet Souvenir</div>
+          <a class="card-link" href="https://docs.google.com/spreadsheets/d/1h361RtTBqTxdnGwIVS6KfAxfb2JLxheZQW39TA27Rq4/preview" target="_blank" rel="noopener">Buka Sheet (lihat) <span aria-hidden="true">&#8599;</span></a>
+        </article>
       </div>
     </section>
 
@@ -282,4 +250,3 @@
   </main>
 </body>
 </html>
-
